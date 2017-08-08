@@ -4,6 +4,7 @@ namespace volt\command;
 use pocketmine\command\Command;
 use pocketmine\command\CommandSender;
 use pocketmine\command\PluginIdentifiableCommand;
+use pocketmine\plugin\Plugin;
 use pocketmine\utils\TextFormat;
 use volt\api\Subscription;
 use volt\Volt;
@@ -14,7 +15,7 @@ class VoltCommand extends Command implements PluginIdentifiableCommand{
         parent::__construct("volt", "Control volt.", "/volt [stuff]", ["http"]);
         $this->main = $main;
     }
-    public function execute(CommandSender $sender, $label, array $args){
+    public function execute(CommandSender $sender, string $label, array $args){
         if($sender->hasPermission("volt.command")) {
             if (isset($args[0])) {
                 if($sender->hasPermission("volt.command.{$args[0]}")) {
@@ -74,7 +75,11 @@ class VoltCommand extends Command implements PluginIdentifiableCommand{
             $sender->sendMessage("This server is running Volt.");
         }
     }
-    public function getPlugin(){
+
+    /**
+	 * @return Plugin|Volt
+	 */
+    public function getPlugin() : Plugin{
         return $this->main;
     }
 }

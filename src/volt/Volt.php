@@ -65,7 +65,7 @@ namespace{
                 'ods' => 'application/vnd.oasis.opendocument.spreadsheet',
             );
 
-            $ext = strtolower(array_pop(explode('.',$filename)));
+            $ext = strtolower(array_slice(explode('.',$filename), -1)[0]);
             if (array_key_exists($ext, $mime_types)) {
                 return $mime_types[$ext];
             }

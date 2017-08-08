@@ -122,7 +122,7 @@ class Tokenizer
      */
     public function scan($text/*, $delimiters = null*/)
     {
-        if ($text instanceof String) {
+        if ($text instanceof HandlebarsString) {
             $text = $text->getString();
         }
         $this->reset();

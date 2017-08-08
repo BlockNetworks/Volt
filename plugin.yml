@@ -3,7 +3,8 @@ name: Volt
 main: volt\Volt
 version: 3.1.0
 author: Falkirks
-api: [3.0.0-ALPHA5]
+api:
+  - 3.0.0-ALPHA7
 load: POSTWORLD
 permissions:
  volt:
